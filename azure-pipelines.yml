@@ -1,0 +1,21 @@
+trigger: none
+
+pool: git pipeline
+
+stages:
+- stage: deploy
+  displayName: deploy
+  jobs:
+  - job: installjava
+    displayName: install java
+    steps:
+    - task: SSH@0
+      inputs:
+        sshEndpoint: 'ssh'
+        runOptions: 'inline'
+        inline: |
+          sudo apt update
+          sudo apt install openjdk-17-jdk -y
+        readyTimeout: '20000'
+
+
