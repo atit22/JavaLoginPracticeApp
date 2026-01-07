@@ -17,5 +17,30 @@ stages:
           sudo apt update
           sudo apt install openjdk-17-jdk -y
         readyTimeout: '20000'
+  - job: installmaven
+    displayName: install maven
+    steps:
+    - task: SSH@0
+      inputs:
+        sshEndpoint: 'ssh'
+        runOptions: 'inline'
+        inline: |
+          sudo apt-get update -y
+          sudo apt-get install -y maven
+        readyTimeout: '20000'
+  - job: installtomecat
+    displayName: install tomcat
+    steps:
+    - task: SSH@0
+      inputs:
+        sshEndpoint: 'ssh'
+        runOptions: 'inline'
+        inline: |
+          cd /opt
+          sudo wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.85/bin/apache-tomcat-9.0.85.tar.gz
+          sudo tar -xvzf apache-tomcat-9.0.85.tar.gz
+          sudo mv apache-tomcat-9.0.85 tomcat9
+          sudo chown -R agentvm:agentvm /opt/tomcat9
+        readyTimeout: '20000'
 
 
