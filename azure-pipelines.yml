@@ -47,7 +47,7 @@ stages:
         sshEndpoint: 'sshtemp'
         runOptions: 'inline'
         inline: |
-          sudo apt-get install -y tomcat9
-          sudo systemctl status tomcat9
+          sudo apt-get install -y tomcat10
+          sudo systemctl status tomcat10
         readyTimeout: '20000'
 
