@@ -11,7 +11,7 @@ stages:
     steps:
     - task: SSH@0
       inputs:
-        sshEndpoint: 'ssh_temp1'
+        sshEndpoint: 'sshtemp'
         runOptions: 'inline'
         inline: |
           sudo apt update
@@ -22,7 +22,7 @@ stages:
     steps:
     - task: SSH@0
       inputs:
-        sshEndpoint: 'ssh_temp1'
+        sshEndpoint: 'sshtemp'
         runOptions: 'inline'
         inline: |
           sudo apt-get update -y
@@ -33,7 +33,7 @@ stages:
     steps:
     - task: SSH@0
       inputs:
-        sshEndpoint: 'ssh_temp1'
+        sshEndpoint: 'sshtemp'
         runOptions: 'inline'
         inline: |
           cd /opt
